@@ -6,6 +6,8 @@ endif()
 
 set(SOURCE_FILES
         main.cpp
+        engine.cpp
+        engine.h
     )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
