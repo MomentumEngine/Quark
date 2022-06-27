@@ -32,5 +32,6 @@
 *.app
 
 # IDE Specifics
-
+.vs
+out/
 *.user

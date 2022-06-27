@@ -20,4 +20,4 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(vendor/glm)
 
-target_link_libraries(${PROJECT_NAME} glfw glm vulkan)
+target_link_libraries(${PROJECT_NAME} glfw glm Vulkan::Vulkan)
