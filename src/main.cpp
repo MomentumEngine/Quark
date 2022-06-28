@@ -8,7 +8,7 @@
 #include "engine.h"
 
 int main() {
-    Engine firstTriangle;
+    Engine firstTriangle{};
     try {
         firstTriangle.run();
         }
