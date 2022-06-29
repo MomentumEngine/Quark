@@ -1,11 +1,21 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
-#include <vulkan/vulkan.h>
-
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+
+#include <GLFW/glfw3.h>
+#include <vulkan/vulkan.h>
+
+const std::vector<const char*> validationLayers = {
+    "VK_LAYER_KHRONOS_validation"
+};
+
+#ifdef NDEBUG
+    const bool enableValidationLayers = false;
+#else
+    const bool enableValidationLayers = true;
+#endif
 
 class Engine
 {
