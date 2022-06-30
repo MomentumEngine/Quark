@@ -7,8 +7,6 @@
 
 #include "engine.h"
 
-void Engine::mainLoop() {
-    while (!glfwWindowShouldClose(m_Window)) {
-        glfwPollEvents();
-    }
+void Engine::initVulkan() {
+    void createInstance();
 }
