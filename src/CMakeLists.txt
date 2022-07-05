@@ -11,6 +11,7 @@ set(SOURCE_FILES
         window.cpp
         vulkanInit.cpp
         vulkanInstance.cpp
+        vulkanValidation.cpp
     )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

@@ -1,13 +1,14 @@
-#include <GLFW/glfw3.h>
-#include <vulkan/vulkan.h>
-
 #include <iostream>
 #include <stdexcept>
 #include <vector>
 
+#define GLFW_INCLUDE_VULKAN
+#include <GLFW/glfw3.h>
+
 #include "engine.h"
 
 void Engine::createInstance() {
+
     VkApplicationInfo appInfo{};
     appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
     appInfo.pApplicationName = "First Triangle";
@@ -21,7 +22,6 @@ void Engine::createInstance() {
     createInfo.pApplicationInfo = &appInfo;
 
     uint32_t glfwExtensionCount = 0;
-    const char** glfwExtensions;
 
     glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
 
@@ -31,17 +31,15 @@ void Engine::createInstance() {
 
     VkResult result = vkCreateInstance(&createInfo, nullptr, &instance);
 
-    if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS) {
+    if(vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS) {
         throw std::runtime_error("Failed to create instance");
     }
 
-    uint32_t extensionCount = 0;
-    vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
-    std::vector<VkExtensionProperties> extensions(extensionCount);
-
-    vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, extensions.data());
-    std::cout << "available extensions:\n";
-    for (const auto &extension : extensions) {
-        std::cout << '\t' << extension.extensionName << std::endl;
+    if(enableValidationLayers && !checkValidationLayerSupport()) {
+        throw std::runtime_error("Failed to fetch validation layers: No validation layers found.");
     }
+
+    auto extensions = getRequiredExtensions();
+    createInfo.enabledExtensionCount =  static_cast<uint32_t>(extensions.size());
+    createInfo.ppEnabledExtensionNames = extensions.data();
 }
