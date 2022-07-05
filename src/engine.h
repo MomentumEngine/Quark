@@ -39,7 +39,6 @@ private:
     const char** glfwExtensions;
 
     std::vector<const char*> getRequiredExtensions();
-    std::vector<VkLayerProperties> availableLayers();
 
     VkDebugUtilsMessengerEXT debugMessenger;
 
@@ -50,5 +49,5 @@ private:
     void mainLoop();
     void cleanup();
     void createInstance();
-    void setupDebugMessaging();
+    void setupDebugMessenger();
 };
