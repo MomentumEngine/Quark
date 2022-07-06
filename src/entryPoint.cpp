@@ -1,9 +1,9 @@
 #include <iostream>
 
-#define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 #include <glm/vec4.hpp>
 #include <glm/mat4x4.hpp>
+#include <vulkan/vulkan.h>
 
 #include "engine.h"
 
