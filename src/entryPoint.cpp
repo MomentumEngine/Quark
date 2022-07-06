@@ -6,8 +6,18 @@
 #include <vulkan/vulkan.h>
 
 #include "engine.h"
+#include "vulkan/instance.hpp"
+#include "vulkan/physical_device.hpp"
 
 int main() {
+    Quark::Engine::Instance instance;
+    {
+	int i = 0;
+	for(auto const& device : Quark::Engine::Physical_device::enumerate_physical_devices(instance)) {
+	    std::cout << "Device#" << i++ << ": " << device.get_properties().deviceName << "\n";
+	}
+    }
+
     Engine firstTriangle{};
     try {
         firstTriangle.run();

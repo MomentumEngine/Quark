@@ -14,6 +14,9 @@ set(SOURCE_FILES
 	vulkan/instance.hpp
 	vulkan/instance.cpp
 	vulkan/function_loader.hpp
+	vulkan/physical_device.hpp
+	vulkan/physical_device.cpp
+	vulkan/utility/span.hpp
     )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

@@ -44,8 +44,8 @@ Quark::Engine::Instance::operator VkInstance() noexcept {
     return object;
 }
 
-uint32_t Quark::Engine::Instance::enumerate_instance_version() {
-    uint32_t api_version{};
+std::uint32_t Quark::Engine::Instance::enumerate_instance_version() {
+    std::uint32_t api_version{};
     if(vkEnumerateInstanceVersion(&api_version) != VK_SUCCESS) 
 	throw std::runtime_error("Quark::Engine::enumerate_instance_version() error");
     return api_version;

@@ -1,5 +1,6 @@
 #pragma once
 #include <vulkan/vulkan.h>
+#include <cstdint>
 
 namespace Quark::Engine {
 
@@ -24,7 +25,7 @@ namespace Quark::Engine {
 
 	// Queries the version of instance-level functionality supported by the implementation.
 	// This value can be compared against VK_API_VERSION_1_0, VK_API_VERSION_1_1, etc...
-	static uint32_t enumerate_instance_version();
+	static std::uint32_t enumerate_instance_version();
 
     private:
 	// Let's keep this naming convention - this way we can later write a common base class
