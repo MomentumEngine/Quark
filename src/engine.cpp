@@ -7,8 +7,17 @@
 
 #include "engine.h"
 
-void Engine::mainLoop() {
+void Quark::Engine::mainLoop() {
     while (!glfwWindowShouldClose(m_Window)) {
         glfwPollEvents();
     }
+}
+
+void Quark::Engine::cleanup() {
+    if (enableValidationLayers) {
+        DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
+    }
+    vkDestroyInstance(instance, nullptr);
+    glfwDestroyWindow(m_Window);
+    glfwTerminate();
 }

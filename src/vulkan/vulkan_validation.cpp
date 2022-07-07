@@ -6,7 +6,7 @@
 
 #include "../engine.h"
 
-bool Engine::checkValidationLayerSupport() {
+bool Quark::Engine::checkValidationLayerSupport() {
 
     uint32_t layerCount;
     vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
@@ -41,7 +41,7 @@ bool Engine::checkValidationLayerSupport() {
     return true;
 }
 
-std::vector<const char*> Engine::getRequiredExtensions() {
+std::vector<const char*> Quark::Engine::getRequiredExtensions() {
     uint32_t glfwExtensionCount = 0;
     const char** glfwExtensions;
     glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
@@ -61,7 +61,7 @@ static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityF
     return VK_FALSE;
 }
 
-void Engine::setupDebugMessenger() {
+void Quark::Engine::setupDebugMessenger() {
     if(!enableValidationLayers)
         return;
 

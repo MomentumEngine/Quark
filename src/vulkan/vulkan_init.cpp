@@ -7,7 +7,7 @@
 
 #include "../engine.h"
 
-void Engine::initVulkan() {
+void Quark::Engine::initVulkan() {
     void createInstance();
     void setupDebugMessaging();
 }

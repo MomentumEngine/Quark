@@ -7,7 +7,7 @@
 
 #include "../engine.h"
 
-void Engine::createInstance() {
+void Quark::Engine::createInstance() {
 
     VkApplicationInfo appInfo{};
     appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
