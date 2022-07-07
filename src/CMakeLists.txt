@@ -5,13 +5,13 @@ if(${CMAKE_VERSION} VERSION_LESS 3.12)
 endif()
 
 set(SOURCE_FILES
-        entryPoint.cpp
+        entry_point.cpp
         engine.cpp
         engine.h
         window.cpp
-        vulkanInit.cpp
-        vulkanInstance.cpp
-        vulkanValidation.cpp
+        vulkan/vulkan_init.cpp
+        vulkan/vulkan_instance.cpp
+        vulkan/vulkan_validation.cpp
     )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
