@@ -14,9 +14,12 @@ void Quark::Engine::mainLoop() {
 }
 
 void Quark::Engine::cleanup() {
+    // commented for validation testing, currently not showing errors and needs fixing
+    /*
     if (enableValidationLayers) {
         DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
     }
+    */
     vkDestroyInstance(instance, nullptr);
     glfwDestroyWindow(m_Window);
     glfwTerminate();
