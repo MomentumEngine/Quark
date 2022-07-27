@@ -31,7 +31,9 @@
 *.out
 *.app
 
-# IDE Specifics
+# Env Specifics
 .vs
 out/
 *.user
+Debug/
+Release/
