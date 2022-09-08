@@ -10,11 +10,11 @@ set (CMAKE_CXX_STANDARD 20)
 find_package(Vulkan REQUIRED FATAL_ERROR)
 
 set(SOURCE_FILES
-        vulkan_init.cpp
-        vulkan_instance.cpp
-        vulkan_validation.cpp
+        src/vulkan_init.cpp
+        src/vulkan_instance.cpp
+        src/vulkan_validation.cpp
     )
 
-target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan)
+add_library(Quark SHARED ${SOURCE_FILES})
 
-add_library(Quark SHARED {$SOURCE_FILES})
+target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan)
