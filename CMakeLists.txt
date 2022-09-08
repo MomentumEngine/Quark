@@ -4,20 +4,17 @@ if(${CMAKE_VERSION} VERSION_LESS 3.12)
     cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 endif()
 
-project(quark LANGUAGES CXX)
+project(Quark LANGUAGES CXX)
 set (CMAKE_CXX_STANDARD 20)
 
 find_package(Vulkan REQUIRED FATAL_ERROR)
 
-add_subdirectory(src/)
+set(SOURCE_FILES
+        vulkan_init.cpp
+        vulkan_instance.cpp
+        vulkan_validation.cpp
+    )
 
-add_subdirectory(vendor/glfw)
-include_directories(vendor/glfw/include)
+target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan)
 
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-
-add_subdirectory(vendor/glm)
-
-target_link_libraries(${PROJECT_NAME} glfw glm Vulkan::Vulkan)
+add_library(Quark SHARED {$SOURCE_FILES})
